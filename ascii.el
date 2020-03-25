@@ -1,4 +1,4 @@
-;;; ascii.el --- Display ASCII table in a help buffer -*- lexical-binding: t -*-
+;;; ascii.el --- Interactive ASCII table -*- lexical-binding: t -*-
 ;;
 ;; SPDX-License-Identifier: ISC
 ;; Author: Lassi Kortela <lassi@lassi.io>
@@ -11,7 +11,12 @@
 ;;
 ;;; Commentary:
 ;;
-;; Browse ascii pages downloaded from the internet in Emacs.
+;; Show a character map of the ubiquitous 7-bit ASCII character set
+;; (128 characters in total).
+;;
+;; Do `M-x ascii` to bring up a window with the ASCII table. Press 'b'
+;; for binary, 'o' for octal, 'd' for decimal and 'x' for hexadecimal.
+;; Press 'c' to change the way control characters are shown.
 ;;
 ;;; Code:
 
