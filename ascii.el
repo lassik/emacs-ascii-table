@@ -26,7 +26,7 @@
 Valid values are 2 (binary), 8 (octal), 10 (decimal), and
 16 (hex). Another word for 'base' is 'radix'.")
 
-(defvar ascii-caret-p nil
+(defvar ascii-control nil
   "Use ^A notation for control characters in the ASCII table?
 
 If non-nil, control characters use caret notation (^A .. ^?).
@@ -79,8 +79,9 @@ one for the name or other representation."
                      (8  (format "%03o" codepoint))
                      (10 (format "%d" codepoint))
                      (16 (format "%02X" codepoint))))
-             (name (or (if ascii-caret-p (ascii--control-caret codepoint)
-                         (ascii--control-name codepoint))
+             (name (or (cl-ecase ascii-control
+                         ((nil) (ascii--control-name codepoint))
+                         (caret (ascii--control-caret codepoint)))
                        (string codepoint)))
              (row  (mod codepoint rows))
              (col  (truncate codepoint rows))
@@ -163,10 +164,12 @@ Assume the table is formatted using COLS columns."
   (setq ascii-base (cl-case base ((2 8 16) base) (t 10)))
   (ascii--revert-if-active))
 
-(defun ascii-toggle-caret ()
-  "Switch ASCII table between ^A notation and control character names."
+(defun ascii-toggle-control ()
+  "Toggle the way control characters are shown in the ASCII table.
+
+Changes between ^A notation and control character names."
   (interactive)
-  (setq ascii-caret-p (not ascii-caret-p))
+  (setq ascii-control (if ascii-control nil 'caret))
   (ascii--revert-if-active))
 
 (defun ascii-base-binary ()
@@ -193,7 +196,7 @@ Assume the table is formatted using COLS columns."
   (let ((map (make-sparse-keymap)))
     (set-keymap-parent map special-mode-map)
     (define-key map (kbd "b") 'ascii-base-binary)
-    (define-key map (kbd "c") 'ascii-toggle-caret)
+    (define-key map (kbd "c") 'ascii-toggle-control)
     (define-key map (kbd "d") 'ascii-base-decimal)
     (define-key map (kbd "o") 'ascii-base-octal)
     (define-key map (kbd "x") 'ascii-base-hex)
