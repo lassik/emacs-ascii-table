@@ -145,7 +145,8 @@ Assume the table is formatted using COLS columns."
                 (if right-justify-p (insert pad contents)
                   (insert contents pad))))
             (insert "\n"))
-          (cl-return))))))
+          (cl-return))))
+    (goto-char (point-min))))
 
 (defun ascii--revert-if-active ()
   "Redisplay the *ASCII* buffer if it exists."
