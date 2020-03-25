@@ -15,7 +15,7 @@
 ;;
 ;;; Code:
 
-(defvar ascii-base 10
+(defvar ascii-base 16
   "Number base used for character codes in the ASCII table.
 
 Valid values are 2 (binary), 8 (octal), 10 (decimal), and
