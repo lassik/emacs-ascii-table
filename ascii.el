@@ -16,7 +16,7 @@
 ;;
 ;; Do `M-x ascii` to bring up a window with the ASCII table. Press 'b'
 ;; for binary, 'o' for octal, 'd' for decimal and 'x' for hexadecimal.
-;; Press 'c' to change the way control characters are shown.
+;; Press TAB to change the way control characters are shown.
 ;;
 ;;; Code:
 
@@ -196,10 +196,10 @@ Changes between ^A notation and control character names."
   (let ((map (make-sparse-keymap)))
     (set-keymap-parent map special-mode-map)
     (define-key map (kbd "b") 'ascii-base-binary)
-    (define-key map (kbd "c") 'ascii-toggle-control)
     (define-key map (kbd "d") 'ascii-base-decimal)
     (define-key map (kbd "o") 'ascii-base-octal)
     (define-key map (kbd "x") 'ascii-base-hex)
+    (define-key map [tab] 'ascii-toggle-control)
     map)
   "Keymap for `ascii-mode'.")
 
