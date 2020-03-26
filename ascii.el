@@ -14,7 +14,7 @@
 ;; Show a character map of the ubiquitous 7-bit ASCII character set
 ;; (128 characters in total).
 ;;
-;; Do `M-x ascii` to bring up a window with the ASCII table. Press 'b'
+;; Do `M-x ascii` to bring up a window with the ASCII table.  Press 'b'
 ;; for binary, 'o' for octal, 'd' for decimal and 'x' for hexadecimal.
 ;; Press TAB to change the way control characters are shown.
 ;;
@@ -24,7 +24,7 @@
   "Number base used for character codes in the ASCII table.
 
 Valid values are 2 (binary), 8 (octal), 10 (decimal), and
-16 (hex). Another word for 'base' is 'radix'.")
+16 (hex).  Another word for 'base' is 'radix'.")
 
 (defvar ascii-control nil
   "Use ^A notation for control characters in the ASCII table?
