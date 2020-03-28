@@ -199,7 +199,7 @@ Changes between ^A notation and control character names."
     (define-key map (kbd "d") 'ascii-table-base-decimal)
     (define-key map (kbd "o") 'ascii-table-base-octal)
     (define-key map (kbd "x") 'ascii-table-base-hex)
-    (define-key map [tab] 'ascii-table-toggle-control)
+    (define-key map (kbd "TAB") 'ascii-table-toggle-control)
     map)
   "Keymap for `ascii-table-mode'.")
 
