@@ -20,6 +20,8 @@
 ;;
 ;;; Code:
 
+(require 'cl-lib)
+
 (defvar ascii-table-base 16
   "Number base used for character codes in the ASCII table.
 
