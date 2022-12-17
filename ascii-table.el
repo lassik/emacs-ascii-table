@@ -39,7 +39,7 @@ Otherwise their names NUL .. DEL are shown.")
 
 (defun ascii-table--binary (codepoint)
   "Internal helper to format CODEPOINT in binary."
-  (setq codepoint (logand codepoint #x7F))
+  (cl-assert (<= 0 codepoint #x7F))
   (string (+ ?0 (logand 1 (lsh codepoint -6)))
           (+ ?0 (logand 1 (lsh codepoint -5)))
           (+ ?0 (logand 1 (lsh codepoint -4)))
